@@ -1,0 +1,193 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "."
+  },
+
+  "plugins": [
+    "@typescript-eslint",
+    "react-hooks",
+    "react",
+    "import",
+    "jsx-a11y"
+  ],
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "prettier/react"
+  ],
+
+  "env": {
+    "browser": true,
+    "node": false
+  },
+
+  "rules": {
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "args": "none",
+        "varsIgnorePattern": "^_+$",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "no-unused-vars": "off",
+
+    "no-param-reassign": [
+      "error",
+      { "props": true, "ignorePropertyModificationsFor": ["draft"] }
+    ],
+
+    "no-undef": "off",
+
+    "no-underscore-dangle": "off",
+
+    "func-names": ["warn", "as-needed"],
+
+    "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
+
+    // cf. https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.md
+    "jsx-a11y/label-has-for": "off",
+
+    // cf. https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-associated-control.md
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "labelComponents": ["CustomLabel"],
+        "labelAttributes": ["inputLabel"],
+        "controlComponents": ["CustomInput"],
+        "assert": "nesting",
+        "depth": 3
+      }
+    ],
+
+    // cf. https://github.com/typescript-eslint/typescript-eslint/blob/v2.20.0/packages/eslint-plugin/docs/rules/no-empty-function.md
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": "off",
+
+    // cf. https://qiita.com/mizchi/items/04b245ff80f3d3006190
+    "@typescript-eslint/no-use-before-define": "off",
+    "no-use-before-define": "off",
+
+    "@typescript-eslint/no-explicit-any": "warn",
+
+    "@typescript-eslint/no-non-null-assertion": "warn",
+
+    "@typescript-eslint/explicit-function-return-type": "off",
+
+    "@typescript-eslint/explicit-member-accessibility": "off",
+
+    "@typescript-eslint/prefer-interface": "off",
+
+    "react/jsx-key": "error",
+
+    "react/jsx-pascal-case": "off",
+
+    "react/prop-types": "off",
+
+    "react/jsx-filename-extension": [
+      "error",
+      { "extensions": [".jsx", ".tsx"] }
+    ],
+
+    // cf. https://reactjs.org/docs/hooks-rules.html#eslint-plugin
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "styled-components",
+            "message": "デバッグしやすくするため styled-components/macro を使ってください"
+          },
+          {
+            "name": "ky",
+            "importNames": ["default"],
+            "message": "代わりに共通部品を使ってください"
+          },
+          {
+            "name": "lodash",
+            "message": "バンドルサイズを減らすため lodash/xxx の形式で import してください"
+          },
+          {
+            "name": "prop-types",
+            "message": "string 型やその他のプリミティブ型を指定しようとして、間違って import していませんか？"
+          },
+          {
+            "name": "@uifabric/merge-styles",
+            "message": "間違って import していませんか？"
+          },
+          {
+            "name": "office-ui-fabric-react",
+            "message": "Parcel でトランスパイルできなくなるので office-ui-fabric-react/lib/Xxx の形式で import してください"
+          }
+        ],
+        "patterns": ["office-ui-fabric-react/lib-commonjs/*"]
+      }
+    ]
+  },
+
+  "overrides": [
+    {
+      "files": [
+        // Storybook
+        "src/stories/**/*.{ts,tsx}",
+        "{src,docs}/**/*.stories.{ts,tsx}",
+
+        // Jest
+        "src/setupTests.{ts,tsx}",
+        "src/**/__tests__/**/*.{ts,tsx}",
+        "src/**/*.{spec,test}.{ts,tsx}",
+
+        // Tools
+        "stub/**/*.{ts,tsx}"
+      ],
+      "env": {
+        "node": true,
+
+        "jest": true
+      },
+      "rules": {
+        "no-console": "off",
+
+        "import/no-extraneous-dependencies": [
+          "error",
+          { "devDependencies": true }
+        ],
+
+        "@typescript-eslint/camelcase": [
+          "error",
+          {
+            "allow": ["npm_package_"]
+          }
+        ],
+
+        "@typescript-eslint/no-object-literal-type-assertion": "off",
+
+        "@typescript-eslint/no-non-null-assertion": "off"
+      }
+    },
+
+    // Type defs
+    {
+      "files": ["*.d.ts"],
+      "rules": {
+        "spaced-comment": ["error", "always", { "markers": ["/"] }]
+      }
+    }
+  ],
+
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+/*global setting*/
+
+html * {
+  letter-spacing: 0.03em !important;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  top: 24px;
+  right: 0px;
+  background-color: white;
+  position: absolute;
+
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+li {
+  padding: 2px;
+  border-bottom: 1px solid #e5e5e5;
+  text-align: center;
+}
+li:last-child {
+  border-bottom: none;
+}
+li:hover {
+  background-color: #e5e5e5;
+  color: white;
+}
+
+/* Remove outline for non-keyboard :focus */
+*:focus:not(.focus-visible) {
+  outline: none;
+}
+
+/* Optional: Customize .focus-visible */
+.focus-visible {
+  outline-color: lightgreen;
+}
+
+/*Information Box*/
+
+.background {
+  background-color: white;
+  border-radius: 4px 4px 4px 4px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.header {
+  position: relative;
+  background-color: rgba(35, 62, 144, 0.1);
+  height: 32px;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 8px 0px 8px 16px;
+  font-size: 12px;
+}

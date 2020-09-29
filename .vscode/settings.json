@@ -1,0 +1,60 @@
+{
+  // Hidden files in VS Code File Explorer.
+  // Hide auto-generated files or files which will be rarely edited.
+  "files.exclude": {
+    // Git
+    ".gitattributes": true,
+    ".gitmodules": true,
+
+    // npm & Yarn
+    "**/node_modules/": true,
+    ".yarnrc": true,
+    "yarn-offline/": true,
+    "yarn.lock": true,
+
+    // ESLint + Prettier
+    ".prettierrc": true,
+
+    // TypeScript
+    "tsconfig.json": true,
+    ".babelrc": true,
+
+    // Parcel
+    "**/dist/": true,
+    ".cache/": true,
+
+    // Snapshots + Coverage
+    "**/__snapshots__/": true,
+    "coverage/lcov-report/[^i]*": true,
+    "coverage/*.*": true
+  },
+
+  // ESLint + Prettier
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true,
+
+  // Markdown TOC
+  // LF is required because of https://github.com/AlanWalk/markdown-toc/issues/65
+  "files.eol": "\n",
+  // GitLab markdown previewer needs 4 spaced tab.
+  "[markdown]": {
+    "editor.tabSize": 4
+  },
+
+  // TypeScript
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  // misc
+  "editor.tabSize": 2,
+  "files.insertFinalNewline": true,
+  "files.associations": {
+    ".eslintrc.json": "jsonc"
+  },
+
+  // Live Server
+  "liveServer.settings.root": "./dist/prod"
+}

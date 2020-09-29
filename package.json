@@ -1,0 +1,103 @@
+{
+  "name": "portal-web",
+  "description": "Portal -- Web UI repository",
+  "version": "1.0.0",
+  "author": "HuyTT <tranthohuy54k1@gmail.com>",
+  "contributors": [
+    "HuyTT <tranthohuy54k1@gmail.com>",
+    "MinhNC <minhnc0208@gmail.com>"
+  ],
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "prestart": "yarn install",
+    "start": "concurrently \"yarn serve\" \"yarn stub\"",
+    "serve": "node scripts/serve ./src/index.html --out-dir ./dist/dev --port 8000 --proxy http://localhost:4000/portal",
+    "stub": "node scripts/stub ./stub/data/**/*.ts --out-dir ./dist/stub --port 4000",
+    "serve-stg": "node scripts/serve ./src/index.html --out-dir ./dist/dev --port 8000 --proxy http://serve.test/portal",
+    "prebuild": "yarn install",
+    "build": "parcel build ./src/index.html --no-source-maps --out-dir ./dist/prod",
+    "sb": "start-storybook --ci --port 9001",
+    "sb-build": "build-storybook --output-dir ./dist/mock/story",
+    "test-all": "concurrently npm:format npm:tsc npm:lint npm:test",
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --verbose --watchAll",
+    "lint": "eslint \"src/**/*\" --format unix --output-file ./lint-error.log"
+  },
+  "config": {
+    "deploy": {
+      "api": "",
+      "credential": "TOKEN"
+    }
+  },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ],
+  "engines": {
+    "node": ">=8.11.1 <12",
+    "yarn": ">=1.6.0"
+  },
+  "dependencies": {
+    "@handsontable/react": "^2.1.0",
+    "@uifabric/fluent-theme": "^7.0.2",
+    "@uifabric/merge-styles": "^7.0.2",
+    "dayjs": "^1.8.14",
+    "fast-memoize": "^2.5.1",
+    "handsontable": "^6.2.2",
+    "immer": "^3.2.0",
+    "ky": "^0.11.1",
+    "lodash": "^4.17.11",
+    "office-ui-fabric-react": "^7.4.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
+    "react-redux": "^7.1.0",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "redux": "^4.0.1",
+    "ress": "^1.2.2",
+    "styled-components": "^4.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@storybook/addon-storyshots": "^5.1.9",
+    "@storybook/addon-viewport": "^5.1.9",
+    "@storybook/react": "^5.1.9",
+    "@testing-library/react-hooks": "^1.0.4",
+    "@types/jest": "^24.0.15",
+    "@types/lodash": "^4.14.135",
+    "@types/react": "^16.8.19",
+    "@types/react-redux": "^7.1.0",
+    "@types/react-router-dom": "^4.3.4",
+    "@types/storybook__react": "^4.0.2",
+    "@types/styled-components": "^4.1.15",
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-macros": "^2.6.1",
+    "commander": "^2.20.0",
+    "concurrently": "^4.1.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "express": "^4.17.1",
+    "http-proxy": "^1.17.0",
+    "jest": "^24.8.0",
+    "mockdate": "^2.0.5",
+    "parcel-bundler": "^1.12.3",
+    "parcel-plugin-static-files-copy": "^2.2.1",
+    "prettier": "^1.18.2",
+    "react-test-renderer": "^16.8.6",
+    "require-context.macro": "^1.0.4",
+    "typescript": "^3.4.5"
+  }
+}

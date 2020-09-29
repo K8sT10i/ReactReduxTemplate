@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Testing
+/coverage/
+
+# Parcel
+/dist/
+/.cache/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# Misc
+.DS_Store

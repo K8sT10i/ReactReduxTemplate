@@ -1,0 +1,38 @@
+{
+  // See http://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
+  // Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
+
+  // List of extensions which should be recommended for users of this workspace.
+  "recommendations": [
+    // リアルタイムに lint と formatter をかけるため
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+
+    // styled-components のシンタックスハイライトを有効にするため
+    "jpoissonnier.vscode-styled-components",
+
+    // Chrome ブラウザーに接続してデバッグするため
+    "msjsdiag.debugger-for-chrome",
+
+    // Markdown の TOC は自動生成してメンテナンスするため
+    "alanwalk.markdown-toc",
+
+    // 画像 URL を手早くプレビューするため
+    "kisstkondoros.vscode-gutter-preview",
+
+    // ビルドしたファイルで画面を確認するため
+    "ritwickdey.liveserver",
+
+    // 左ペインの Explorer のファイルアイコンをバリエーション豊かにしてくれ る
+    "vscode-icons-team.vscode-icons",
+
+    // インデントの階層を色分けして見やすくしてくれる
+    "oderwat.indent-rainbow",
+
+    // マッチする括弧を色分けして教えてくれる
+    "coenraads.bracket-pair-colorizer"
+  ],
+
+  // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
+  "unwantedRecommendations": []
+}

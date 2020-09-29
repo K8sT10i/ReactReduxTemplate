@@ -1,0 +1,44 @@
+{
+  // Based on https://github.com/Microsoft/TypeScript-Babel-Starter/blob/b060934/tsconfig.json
+  "compilerOptions": {
+    /* Basic Options */
+    // Using tsc just for type-checking, the transpiled results does not matter at runtime
+    // so we can use JSX preserved and ESNext style syntax regardless of browser support.
+    // Actual transpiling is done by Babel (without type-checking).
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["dom", "esnext"],
+    "allowJs": false,
+    // https://parceljs.org/typeScript.html#when-using-react
+    "jsx": "react",
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+
+    /* Strict Type-Checking Options */
+    // In the first development, avoid strict type-checking.
+    "strict": false,
+    // null チェックがあったほうがいい
+    "strictNullChecks": true,
+    // `this` の推論を有効にする
+    "noImplicitThis": true,
+
+    /* Additional Checks */
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "skipLibCheck": true,
+
+    /* Source Map Options */
+    "sourceMap": true,
+
+    /* Taken from Create React App */
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
+  },
+  "include": ["src/**/*", "stub/**/*"],
+  "exclude": ["node_modules"]
+}
