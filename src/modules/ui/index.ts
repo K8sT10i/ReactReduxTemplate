@@ -187,12 +187,10 @@ const reducer: Reducer<UI, ValueOf<UIAction>> = function(
   state,
 ) {
   if (isErrorAction(action)) {
-    // TODO err オブジェクトの取得方法を考える必要あり
     // const [, err] = anyAction.payload
     const err = action.payload
 
     if (err instanceof Array) {
-      // ToDo　findで記述できるように記述にする
       let e
       err.forEach(v => {
         if (v instanceof HTTPError) {
@@ -202,7 +200,6 @@ const reducer: Reducer<UI, ValueOf<UIAction>> = function(
 
       if (e instanceof HTTPError) {
         const unauthorized = e.response.status === 401
-        // システム例外発生時はセッションが破棄されて未認証状態に戻ってしまう
         const internalServerError = e.response.status >= 500
         if (unauthorized || internalServerError) {
           if (
@@ -232,7 +229,6 @@ const reducer: Reducer<UI, ValueOf<UIAction>> = function(
 
     if (err instanceof HTTPError) {
       const unauthorized = err.response.status === 401
-      // システム例外発生時はセッションが破棄されて未認証状態に戻ってしまう
       const internalServerError = err.response.status >= 500
       if (unauthorized || internalServerError) {
         if (ui.messages.find(v => v.message === MZPZZMG00C052) === undefined) {
