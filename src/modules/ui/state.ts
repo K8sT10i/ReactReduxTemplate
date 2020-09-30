@@ -61,7 +61,6 @@ export type CategoryName = {
   nameEn?: string
 }
 
-/* 新着通知用 */
 export type NewNotification = {
   pushUrl?: string
   eventSource?: EventSource
@@ -118,7 +117,6 @@ export type CodeData = {
   sortOrder: number
 }
 
-/* 業務グループ */
 export type BizGroupData = {
   bizGroupCode: string
   bizGroupNameJp: string
