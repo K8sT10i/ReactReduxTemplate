@@ -83,10 +83,10 @@ export type Reducer<TStateSlice, TAction> = (
 ) => DeepReadonly<TStateSlice>
 
 /**
- * 最も根幹となる reducer.
+ *reducer.
  *
  * @param state Root state
- * @param action 全アクションが渡ってくる
+ * @param action
  */
 export const rootReducer: Reducer<RootState, AllActions> = function(
   state,
